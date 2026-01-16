@@ -83,14 +83,20 @@ const QUESTIONS = [
 document.getElementById('openTestModal').onclick = () => {
     els.testModal.style.display = 'flex';
     const container = document.getElementById('testContainer');
+    
     container.innerHTML = QUESTIONS.map((q, i) => `
-        <div style="margin-bottom: 20px; background: #f8fafc; padding: 15px; border-radius: 12px;">
-            <p style="font-weight:700; margin-bottom: 10px;">${i+1}. ${q.q}</p>
-            ${q.opts.map(opt => `
-                <label style="display:block; margin-bottom:5px; cursor:pointer;">
-                    <input type="radio" name="q${i}" value="${opt}"> ${opt}
-                </label>
-            `).join('')}
+        <div class="test-question-box">
+            <p style="font-weight:700; font-size: 16px; margin-bottom: 12px; color: #1e293b;">
+                ${i+1}. ${q.q}
+            </p>
+            <div class="options-grid" style="display: grid; gap: 10px;">
+                ${q.opts.map(opt => `
+                    <label class="test-option" style="display: flex; align-items: center; padding: 12px 15px; background: white; border: 1px solid #e2e8f0; border-radius: 10px; cursor: pointer; transition: 0.2s;">
+                        <input type="radio" name="q${i}" value="${opt}" style="width: auto; margin-right: 12px; margin-bottom: 0;">
+                        <span style="font-size: 14px; font-weight: 500;">${opt}</span>
+                    </label>
+                `).join('')}
+            </div>
         </div>
     `).join('');
 };
@@ -112,3 +118,4 @@ document.querySelectorAll('.close-btn, .close-test-btn').forEach(b => {
         els.testModal.style.display = 'none';
     }
 });
+
