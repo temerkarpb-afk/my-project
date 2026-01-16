@@ -18,11 +18,11 @@
         
         <div class="header-search">
             <i class='bx bx-search'></i>
-            <input type="text" id="searchInput" placeholder="Поиск учебника по названию...">
+            <input type="text" id="searchInput" placeholder="Поиск учебника...">
         </div>
 
         <div class="header-btns">
-            <button id="loginTrigger" class="btn-auth">Войти</button>
+            <button id="loginTrigger" class="btn-auth"><i class='bx bx-user-circle'></i> <span>Войти</span></button>
             <button id="adminBurger" class="btn-admin-icon"><i class='bx bx-cog'></i></button>
         </div>
     </div>
@@ -116,6 +116,8 @@
             </div>
         </div>
     </section>
+
+    <div id="extraBooks" class="extra-books-container"></div>
 </main>
 
 <footer class="main-footer">
@@ -154,15 +156,25 @@
 </footer>
 
 <div id="loginModal" class="modal">
-    <div class="modal-content">
-        <h2>Авторизация</h2>
+    <div class="modal-content auth-card">
+        <button class="close-modal"><i class='bx bx-x'></i></button>
+        <div class="auth-header">
+            <i class='bx bxs-lock-alt'></i>
+            <h2>С возвращением</h2>
+            <p>Войдите в систему для управления библиотекой</p>
+        </div>
         <form id="loginForm">
-            <input type="text" id="username" placeholder="Логин (admin)" required>
-            <input type="password" id="password" placeholder="Пароль (123)" required>
+            <div class="input-group">
+                <i class='bx bx-user'></i>
+                <input type="text" id="username" placeholder="Логин (admin)" required>
+            </div>
+            <div class="input-group">
+                <i class='bx bx-key'></i>
+                <input type="password" id="password" placeholder="Пароль (123)" required>
+            </div>
             <p id="errorMessage" class="error-txt"></p>
-            <button type="submit" class="btn-submit">Войти</button>
+            <button type="submit" class="btn-submit">Подтвердить вход</button>
         </form>
-        <button class="close-modal">&times;</button>
     </div>
 </div>
 
@@ -170,7 +182,7 @@
     <div class="modal-content test-modal-box">
         <div class="test-header">
             <h2>Проверка знаний</h2>
-            <button class="close-test">&times;</button>
+            <button class="close-test"><i class='bx bx-x'></i></button>
         </div>
         <div id="testContainer"></div>
         <button id="submitTest" class="btn-test-done">Завершить и проверить</button>
@@ -179,14 +191,25 @@
 
 <div id="adminPanel" class="side-admin">
     <div class="admin-header">
-        <h3>Админ-панель</h3>
-        <button class="close-admin">&times;</button>
+        <div class="admin-title">
+            <i class='bx bx-crown'></i>
+            <h3>Панель управления</h3>
+        </div>
+        <button class="close-admin"><i class='bx bx-x'></i></button>
     </div>
-    <div class="admin-form">
-        <input type="text" id="bookName" placeholder="Название учебника">
-        <input type="text" id="bookImg" placeholder="Ссылка на обложку">
-        <button id="addBookBtn">Добавить в базу</button>
-        <ul id="bookList"></ul>
+    <div class="admin-body">
+        <div class="admin-section">
+            <h4>Добавить ресурс</h4>
+            <div class="admin-form">
+                <input type="text" id="bookName" placeholder="Название учебника">
+                <input type="text" id="bookImg" placeholder="Прямая ссылка на обложку (URL)">
+                <button id="addBookBtn"><i class='bx bx-plus-circle'></i> Добавить в базу</button>
+            </div>
+        </div>
+        <div class="admin-section">
+            <h4>Активные материалы</h4>
+            <ul id="bookList" class="admin-book-list"></ul>
+        </div>
     </div>
 </div>
 
