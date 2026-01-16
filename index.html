@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Электронные учебники</title>
-<link rel="stylesheet" href="./style.css">
-<link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Электронные учебники — Библиотека</title>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+
 <header class="header">
     <div class="head-logo">
         <img src="./img1.webp" alt="logo">
@@ -16,157 +17,155 @@
 
     <div class="head-right">
         <div class="search">
-            <input type="text" placeholder="Поиск учебника...">
-            <button>Поиск</button>
+            <input type="text" id="searchInput" placeholder="Поиск учебника...">
+            <button id="searchBtn"><i class='bx bx-search'></i></button>
         </div>
         <a href="#" class="btn-login">Войти</a>
-        <i id="adminBurger" class='bx bx-menu'></i>
-    </div>
+        <i id="adminBurger" class='bx bx-cog'></i> </div>
 </header>
+
 <main>
+    <section class="subject-section">
+        <h2>Пройти тестирование</h2>
+        <p class="test-subtext">Проверьте свои знания и подготовьтесь к экзаменам прямо сейчас!</p>
+        <button id="openTestModal" class="btn-test">Начать тест</button>
+    </section>
 
-<section class="subject-section">
-    <h2>Пройти тестирование</h2>
-    <p class="test-subtext">Проверьте свои знания и подготовьтесь к экзаменам!</p>
-<button id="openTestModal" class="btn-test">Начать тест</button>
-</section>
-
-<section class="subjects">
-    <div class="subject">
-        <h3>Математика</h3>
-        <div class="buttons">
-            <button id="math-1" data-class="1 класс">1 класс</button>
-            <button id="math-2" data-class="2 класс">2 класс</button>
-            <button id="math-3" data-class="3 класс">3 класс</button>
-            <button id="math-4" data-class="4 класс">4 класс</button>
-            <button id="math-5" data-class="5 класс">5 класс</button>
-            <button id="math-6" data-class="6 класс">6 класс</button>
-            <button id="math-7" data-class="7 класс">7 класс</button>
-            <button id="math-8" data-class="8 класс">8 класс</button>
-            <button id="math-9" data-class="9 класс">9 класс</button>
-            <button id="math-10" data-class="10 класс">10 класс</button>
-            <button id="math-11" data-class="11 класс">11 класс</button>
+    <section class="subjects">
+        <div class="subject">
+            <h3><i class='bx bx-calculator'></i> Математика</h3>
+            <div class="buttons">
+                <button id="math-1" data-class="Математика 1 класс">1 кл</button>
+                <button id="math-2" data-class="Математика 2 класс">2 кл</button>
+                <button id="math-3" data-class="Математика 3 класс">3 кл</button>
+                <button id="math-4" data-class="Математика 4 класс">4 кл</button>
+                <button id="math-5" data-class="Математика 5 класс">5 кл</button>
+                <button id="math-6" data-class="Математика 6 класс">6 кл</button>
+                <button id="math-7" data-class="Математика 7 класс">7 кл</button>
+                <button id="math-8" data-class="Математика 8 класс">8 кл</button>
+                <button id="math-9" data-class="Математика 9 класс">9 кл</button>
+                <button id="math-10" data-class="Математика 10 класс">10 кл</button>
+                <button id="math-11" data-class="Математика 11 класс">11 кл</button>
+            </div>
         </div>
-    </div>
 
-    <div class="subject">
-        <h3>Русский язык</h3>
-        <div class="buttons">
-            <button id="rus-1" data-class="1 класс">1 класс</button>
-            <button id="rus-2" data-class="2 класс">2 класс</button>
-            <button id="rus-3" data-class="3 класс">3 класс</button>
-            <button id="rus-4" data-class="4 класс">4 класс</button>
-            <button id="rus-5" data-class="5 класс">5 класс</button>
-            <button id="rus-6" data-class="6 класс">6 класс</button>
-            <button id="rus-7" data-class="7 класс">7 класс</button>
-            <button id="rus-8" data-class="8 класс">8 класс</button>
-            <button id="rus-9" data-class="9 класс">9 класс</button>
-            <button id="rus-10" data-class="10 класс">10 класс</button>
-            <button id="rus-11" data-class="11 класс">11 класс</button>
+        <div class="subject">
+            <h3><i class='bx bx-book-bookmark'></i> Русский язык</h3>
+            <div class="buttons">
+                <button id="rus-1" data-class="Русский язык 1 класс">1 кл</button>
+                <button id="rus-2" data-class="Русский язык 2 класс">2 кл</button>
+                <button id="rus-3" data-class="Русский язык 3 класс">3 кл</button>
+                <button id="rus-4" data-class="Русский язык 4 класс">4 кл</button>
+                <button id="rus-5" data-class="Русский язык 5 класс">5 кл</button>
+                <button id="rus-6" data-class="Русский язык 6 класс">6 кл</button>
+                <button id="rus-7" data-class="Русский язык 7 класс">7 кл</button>
+                <button id="rus-8" data-class="Русский язык 8 класс">8 кл</button>
+                <button id="rus-9" data-class="Русский язык 9 класс">9 кл</button>
+                <button id="rus-10" data-class="Русский язык 10 класс">10 кл</button>
+                <button id="rus-11" data-class="Русский язык 11 класс">11 кл</button>
+            </div>
         </div>
-    </div>
 
-    <div class="subject">
-        <h3>Английский язык</h3>
-        <div class="buttons">
-            <button id="eng-1" data-class="1 класс">1 класс</button>
-            <button id="eng-2" data-class="2 класс">2 класс</button>
-            <button id="eng-3" data-class="3 класс">3 класс</button>
-            <button id="eng-4" data-class="4 класс">4 класс</button>
-            <button id="eng-5" data-class="5 класс">5 класс</button>
-            <button id="eng-6" data-class="6 класс">6 класс</button>
-            <button id="eng-7" data-class="7 класс">7 класс</button>
-            <button id="eng-8" data-class="8 класс">8 класс</button>
-            <button id="eng-9" data-class="9 класс">9 класс</button>
-            <button id="eng-10" data-class="10 класс">10 класс</button>
-            <button id="eng-11" data-class="11 класс">11 класс</button>
+        <div class="subject">
+            <h3><i class='bx bx-world'></i> Английский язык</h3>
+            <div class="buttons">
+                <button id="eng-1" data-class="Английский язык 1 класс">1 кл</button>
+                <button id="eng-2" data-class="Английский язык 2 класс">2 кл</button>
+                <button id="eng-3" data-class="Английский язык 3 класс">3 кл</button>
+                <button id="eng-4" data-class="Английский язык 4 класс">4 кл</button>
+                <button id="eng-5" data-class="Английский язык 5 класс">5 кл</button>
+                <button id="eng-6" data-class="Английский язык 6 класс">6 кл</button>
+                <button id="eng-7" data-class="Английский язык 7 класс">7 кл</button>
+                <button id="eng-8" data-class="Английский язык 8 класс">8 кл</button>
+                <button id="eng-9" data-class="Английский язык 9 класс">9 кл</button>
+                <button id="eng-10" data-class="Английский язык 10 класс">10 кл</button>
+                <button id="eng-11" data-class="Английский язык 11 класс">11 кл</button>
+            </div>
         </div>
-    </div>
-</section>
-<section class="book-display" id="book-display">
-    <h2>Учебник для <span id="current-class-title"></span></h2>
-    <img src="" alt="Изображение учебника" id="book-image">
-</section>
-<section class="subjects" id="extraBooksSection">
-    <div class="subject">
-        <h3>Дополнительные учебники</h3>
-        <div class="buttons" id="extraBooks"></div>
-    </div>
-</section>
+    </section>
 
-<section class="about">
-    <h2>О сайте</h2>
-    <p>
-        Наш сайт электронной библиотеки учебников создан для удобного и бесплатного доступа к учебным материалам для всех классов.
-        Здесь собраны учебники по основным школьным предметам: математике, русскому языку, литературе, истории, биологии, физике, географии и многим другим.
-        Каждый учебник представлен в удобном электронном формате, который можно читать онлайн или скачивать. Платформа подходит ученикам, учителям и родителям, помогая быстро находить нужные материалы для занятий и подготовки.
-    </p>
-</section>
+    <section class="book-display" id="book-display">
+        <h2>Учебник: <span id="current-class-title"></span></h2>
+        <img src="" alt="Обложка учебника" id="book-image">
+    </section>
+
+    <section class="subjects" id="extraBooksSection">
+        <div class="subject" style="width: 100%; max-width: 1200px;">
+            <h3>Дополнительные материалы</h3>
+            <div class="buttons" id="extraBooks"></div>
+        </div>
+    </section>
+
+    <section class="about">
+        <h2>О проекте</h2>
+        <p>Наш сайт — это открытая электронная библиотека учебных материалов. Мы помогаем ученикам и учителям получать быстрый доступ к знаниям в любом месте и в любое время.</p>
+    </section>
 </main>
+
 <footer class="footer">
     <div class="footer-links">
         <a href="#">О сайте</a>
         <a href="#">Контакты</a>
-        <a href="#">Политика конфиденциальности</a>
+        <a href="#">Помощь</a>
     </div>
-    <p>© 2025 Электронные учебники</p>
+    <p>© 2025 Электронные учебники. Все права защищены.</p>
 </footer>
 
 <div id="loginModal" class="modal">
     <div class="modal-content">
         <span class="close-btn">&times;</span>
-        <h2>Вход в админ-панель</h2>
+        <h2>Вход</h2>
         <form id="loginForm">
             <div class="form-group">
-                <label for="username">Логин:</label>
-                <input type="text" id="username" name="username" required>
+                <label>Логин</label>
+                <input type="text" id="username" required>
             </div>
             <div class="form-group">
-                <label for="password">Пароль:</label>
-                <input type="password" id="password" name="password" required>
+                <label>Пароль</label>
+                <input type="password" id="password" required>
             </div>
             <p id="errorMessage" class="error-message"></p>
-            <button type="submit" class="submit-btn">Войти</button>
+            <button type="submit" class="submit-btn">Войти в систему</button>
         </form>
     </div>
 </div>
+
 <div id="testModal" class="modal">
     <div class="modal-content test-box">
         <span class="close-test-btn">&times;</span>
-        <h2>Тест из 10 вопросов</h2>
+        <h2>Тестирование знаний</h2>
         <div id="testContainer"></div>
-        <button id="submitTest" class="submit-btn">Проверить</button>
-        <p id="testResult"></p>
+        <button id="submitTest" class="submit-btn">Проверить результаты</button>
     </div>
 </div>
 
-<script src="./script.js" defer></script>
 <div id="adminPanel" class="admin-panel">
     <div class="admin-header">
-        <h2>Админ-панель</h2>
+        <h2>Управление</h2>
         <span class="close-admin">&times;</span>
     </div>
     <div class="admin-content">
         <h3>Добавить учебник</h3>
-       <form id="addBookForm">
-    <input type="text" id="bookName" placeholder="Название книги" required>
-    <input type="text" id="bookImg" placeholder="Ссылка на изображение" required>
-
-    <select id="bookCategory" required>
-        <option value="" disabled selected>Категория</option>
-        <option value="math">Математика</option>
-        <option value="russian">Русский язык</option>
-        <option value="english">Английский язык</option>
-        <option value="other">Другая категория</option>
-    </select>
-
-    <button type="submit">Добавить</button>
-</form>
-<h3>Учебники на сайте</h3>
-<ul id="bookList"></ul>
+        <form id="addBookForm">
+            <input type="text" id="bookName" placeholder="Название (напр. Геометрия 7 кл)" required>
+            <input type="text" id="bookImg" placeholder="URL обложки (ссылка)" required>
+            <select id="bookCategory" required>
+                <option value="" disabled selected>Выберите категорию</option>
+                <option value="math">Математика</option>
+                <option value="russian">Русский язык</option>
+                <option value="english">Английский язык</option>
+                <option value="other">Другое</option>
+            </select>
+            <button type="submit">Сохранить книгу</button>
+        </form>
+        <hr style="margin: 20px 0; border: 0; border-top: 1px solid rgba(255,255,255,0.2);">
+        <h3>Список добавленных</h3>
+        <ul id="bookList"></ul>
     </div>
 </div>
+
 <div id="testToast" class="test-toast"></div>
 
+<script src="./script.js" defer></script>
 </body>
 </html>
