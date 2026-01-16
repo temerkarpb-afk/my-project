@@ -1,4 +1,3 @@
-// База данных учебников
 const bookMap = {
     'math-1': 'img3.webp', 'math-2': 'img4.webp', 'math-3': 'img5.webp', 'math-4': 'img6.webp', 'math-5': 'img7.webp', 'math-6': 'img8.webp', 'math-7': 'img9.webp', 'math-8': 'img10.webp', 'math-9': 'img11.webp', 'math-10': 'img12.webp', 'math-11': 'img13.webp',
     'rus-1': 'img14.webp', 'rus-2': 'img15.webp', 'rus-3': 'img16.webp', 'rus-4': 'img17.webp', 'rus-5': 'img18.webp', 'rus-6': 'img19.webp', 'rus-7': 'img20.webp', 'rus-8': 'img21.webp', 'rus-9': 'img22.webp', 'rus-10': 'img23.webp', 'rus-11': 'img24.webp',
@@ -14,10 +13,10 @@ const QUESTIONS = [
 let isLoggedIn = false;
 let extraBooks = JSON.parse(localStorage.getItem('addedBooks')) || [];
 
-// 1. Выбор учебника
+// 1. ВЫБОР УЧЕБНИКА
 document.querySelectorAll('.class-selector button').forEach(btn => {
     btn.onclick = (e) => {
-        e.stopPropagation(); // Чтобы не срабатывал клик по карточке
+        e.stopPropagation();
         const id = btn.id;
         const viewer = document.getElementById('book-display');
         if (bookMap[id]) {
@@ -29,7 +28,7 @@ document.querySelectorAll('.class-selector button').forEach(btn => {
     };
 });
 
-// 2. Живой поиск
+// 2. ПОИСК
 document.getElementById('searchInput').oninput = function() {
     let val = this.value.toLowerCase().trim();
     document.querySelectorAll('.subject-card').forEach(card => {
@@ -38,15 +37,15 @@ document.getElementById('searchInput').oninput = function() {
     });
 };
 
-// 3. Авторизация
+// 3. АВТОРИЗАЦИЯ
 const loginModal = document.getElementById('loginModal');
 document.getElementById('loginTrigger').onclick = () => {
-    if (!isLoggedIn) loginModal.style.display = 'flex';
-    else {
+    if (!isLoggedIn) {
+        loginModal.style.display = 'flex';
+    } else {
         isLoggedIn = false;
         document.getElementById('loginTrigger').innerHTML = "<i class='bx bx-user-circle'></i> <span>Войти</span>";
         document.getElementById('adminPanel').classList.remove('active');
-        alert('Вы вышли из системы');
     }
 };
 
@@ -60,18 +59,18 @@ document.getElementById('loginForm').onsubmit = (e) => {
         loginModal.style.display = 'none';
         document.getElementById('loginForm').reset();
     } else {
-        document.getElementById('errorMessage').textContent = 'Ошибка доступа!';
+        document.getElementById('errorMessage').textContent = 'Неверные данные!';
     }
 };
 
-// 4. Тестирование
+// 4. ТЕСТЫ
 document.getElementById('openTestModal').onclick = () => {
     document.getElementById('testModal').style.display = 'flex';
     const container = document.getElementById('testContainer');
     container.innerHTML = QUESTIONS.map((q, i) => `
-        <div style="margin-bottom:15px; padding:15px; background:#f8fafc; border-radius:12px; border:1px solid #e2e8f0;">
+        <div style="margin-bottom:15px; padding:20px; background:#f8fafc; border-radius:15px; border:1px solid #e2e8f0;">
             <p style="font-weight:700; margin-bottom:10px;">${i+1}. ${q.q}</p>
-            ${q.opts.map(o => `<label style="display:block; margin:5px 0; cursor:pointer;"><input type="radio" name="q${i}" value="${o}"> ${o}</label>`).join('')}
+            ${q.opts.map(o => `<label style="display:block; margin:8px 0; cursor:pointer;"><input type="radio" name="q${i}" value="${o}"> ${o}</label>`).join('')}
         </div>
     `).join('');
 };
@@ -86,13 +85,13 @@ document.getElementById('submitTest').onclick = () => {
     document.getElementById('testModal').style.display = 'none';
 };
 
-// 5. Админка
+// 5. АДМИНКА И ДОП УЧЕБНИКИ
 const adminPanel = document.getElementById('adminPanel');
 document.getElementById('adminBurger').onclick = () => {
     if (isLoggedIn) {
         adminPanel.classList.toggle('active');
         renderAdminList();
-    } else alert('Войдите как админ (admin / 123)');
+    } else alert('Сначала войдите как админ');
 };
 
 document.getElementById('addBookBtn').onclick = () => {
@@ -110,9 +109,9 @@ document.getElementById('addBookBtn').onclick = () => {
 
 function renderAdminList() {
     document.getElementById('bookList').innerHTML = extraBooks.map(book => `
-        <li style="display:flex; justify-content:space-between; margin-bottom:8px; background:#f8fafc; padding:10px; border-radius:10px; border:1px solid #eee;">
-            <span style="font-size:14px; font-weight:500;">${book.name}</span>
-            <button onclick="deleteBook(${book.id})" style="color:var(--error); border:none; background:none; cursor:pointer;"><i class='bx bx-trash'></i></button>
+        <li style="display:flex; justify-content:space-between; margin-bottom:10px; background:#f8fafc; padding:12px; border-radius:12px; border:1px solid #eee;">
+            <span style="font-weight:600; font-size:14px;">${book.name}</span>
+            <button onclick="deleteBook(${book.id})" style="color:var(--error); border:none; background:none; cursor:pointer; font-size:18px;"><i class='bx bx-trash'></i></button>
         </li>
     `).join('');
 }
@@ -120,19 +119,30 @@ function renderAdminList() {
 function renderExtraBooks() {
     const container = document.getElementById('extraBooks');
     if (extraBooks.length > 0) {
-        container.innerHTML = `<h2 class="section-title" style="margin-top:40px;">Дополнительно</h2><div class="subjects-grid">` + 
-            extraBooks.map(book => `
-                <div class="subject-card" onclick="showExtra('${book.name}', '${book.imgUrl}')">
-                    <div class="card-header"><div class="icon-box" style="background:#eef2ff; color:#4f46e5;"><i class='bx bx-book-add'></i></div>
-                    <h3>${book.name}</h3></div>
-                </div>`).join('') + `</div>`;
-    } else container.innerHTML = '';
+        container.innerHTML = `
+            <h2 class="section-title">Дополнительные ресурсы</h2>
+            <div class="subjects-grid">
+                ${extraBooks.map(book => `
+                    <div class="subject-card extra-card" onclick="showExtra('${book.name}', '${book.imgUrl}')">
+                        <div class="card-header">
+                            <div class="icon-box" style="background:#eef2ff; color:#4f46e5;"><i class='bx bx-plus-circle'></i></div>
+                            <h3>${book.name}</h3>
+                        </div>
+                        <p style="font-size:13px; color:#64748b;">Нажмите, чтобы открыть обложку</p>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+    } else {
+        container.innerHTML = '';
+    }
 }
 
 window.deleteBook = (id) => {
     extraBooks = extraBooks.filter(b => b.id !== id);
     localStorage.setItem('addedBooks', JSON.stringify(extraBooks));
-    renderAdminList(); renderExtraBooks();
+    renderAdminList();
+    renderExtraBooks();
 };
 
 window.showExtra = (name, url) => {
@@ -143,7 +153,7 @@ window.showExtra = (name, url) => {
     viewer.scrollIntoView({ behavior: 'smooth', block: 'center' });
 };
 
-// 6. Закрытие окон
+// 6. ЗАКРЫТИЕ
 document.querySelectorAll('.close-modal, .close-test, .close-admin').forEach(btn => {
     btn.onclick = () => {
         loginModal.style.display = 'none';
@@ -152,5 +162,4 @@ document.querySelectorAll('.close-modal, .close-test, .close-admin').forEach(btn
     }
 });
 
-// Инициализация
 renderExtraBooks();
